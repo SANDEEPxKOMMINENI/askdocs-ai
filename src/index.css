@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-lg border border-white/10 shadow-2xl;
+  }
+  
+  .gradient-border {
+    @apply relative rounded-xl;
+    background: linear-gradient(45deg, #3b82f6, #8b5cf6, #d946ef);
+    padding: 1px;
+  }
+  
+  .gradient-border > * {
+    @apply bg-background rounded-xl;
+  }
+  
+  .animate-gradient {
+    background-size: 300% 300%;
+    animation: moveGradient 8s ease infinite;
+  }
+
+  .nav-item {
+    @apply flex items-center px-4 py-2 rounded-lg transition-all duration-200 hover:bg-white/5;
+  }
+
+  .nav-item.active {
+    @apply bg-primary/20 text-primary;
+  }
+
+  .button-gradient {
+    @apply relative overflow-hidden transition-all duration-300;
+    background: linear-gradient(45deg, #3b82f6, #8b5cf6, #d946ef);
+    background-size: 200% 200%;
+    animation: moveGradient 4s ease infinite;
+  }
+
+  .button-gradient:hover {
+    background-size: 150% 150%;
+  }
+}
+
+@keyframes moveGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.prose {
+  @apply prose-invert max-w-none;
+}
+
+.prose pre {
+  @apply bg-white/5 rounded-lg border border-white/10;
+}
+
+.prose code {
+  @apply text-sky-400 bg-white/5 px-1.5 py-0.5 rounded;
+}
+
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #4b5563 transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-white/10 rounded-full hover:bg-white/20;
+}
+
+.glass-effect {
+  @apply bg-white/5 backdrop-blur-lg border border-white/10;
+}
